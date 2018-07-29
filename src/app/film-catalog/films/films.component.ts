@@ -9,14 +9,15 @@ import { FilmService } from '../film.service';
 export class FilmsComponent implements OnInit {
 
   description: string = 'Middle card description';
-  
-  
-  constructor(filmsService: FilmService) { 
-    
+
+  films: object;
+
+  constructor(public filmsService: FilmService) {
+
   }
-  
-  ngOnInit() { 
-    
+
+  ngOnInit() {
+    this.films = this.filmsService.getData();
   }
-  
+
 }
