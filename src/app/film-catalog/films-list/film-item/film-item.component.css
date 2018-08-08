@@ -1,4 +1,4 @@
-.example-card {
+.card {
   max-width: 400px;
 }
 .example-header-image {
@@ -9,7 +9,7 @@
   text-align: left;
 }
 /*.mat-grid-list {*/
-  /*margin: 30px;*/
+/*margin: 30px;*/
 /*}*/
 .mat-grid-tile {
   margin-top: 30px;
@@ -22,4 +22,4 @@ img {
   height: 600px;
   object-fit: cover;
 }
-div {color: red}
+
