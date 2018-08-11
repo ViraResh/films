@@ -15,7 +15,6 @@ export class FilmItemComponent implements OnInit {
     this.update.emit((el && el.innerHTML) || this.value);
   }
   ngOnInit() {
-    //console.log(this.filmItem);
   }
 
 }
