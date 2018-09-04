@@ -11,7 +11,14 @@
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <button (click)="setToParent(filmItem.id)" mat-button>Добати у вибране</button>
+    <button (click)="favoriteFilm()" mat-button>{{filmItem.isFavorite ? 'Видалити з вибраного' : 'Додати у вибране'}}</button>
+    <!--<div *ngIf="improved">-->
+      <!--<button (click)="favoriteFilm(filmItem.id)" mat-button>Видалити з вибраного</button>-->
+    <!--</div>-->
+    <!--<div *ngIf="!improved">-->
+      <!--<button (click)="favoriteFilm(filmItem.id)" mat-button>Додати у вибране</button>-->
+    <!--</div>-->
+
   </mat-card-actions>
 </mat-card>
 

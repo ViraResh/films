@@ -8,8 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   links: object[] = [
-    { path: '/main', label: 'Главная', active: 'button-active', icon: 'home'},
-    { path: '/films', label: 'Все фильмы', active: 'button-active', icon: 'list_alt'}
+    { path: '/main', label: 'Головна', active: 'button-active', icon: 'home'},
+    { path: '/films', label: 'Всі фільми', active: 'button-active', icon: 'list_alt'}
   ];
 
 }

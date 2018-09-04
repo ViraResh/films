@@ -1,25 +1,26 @@
-<mat-card class="menu-card">
+<div class="container">
+  <!--<div (update)="setUpdatedValue($event)"></div>-->
+  <mat-card class="menu-card">
+    <mat-toolbar class="menu-toolbar">
+      <mat-toolbar-row>
+        <span>В вибране добавлено: {{ counter }} елементів</span>
+        <span class="example-spacer"></span>
+        <div>
+          <mat-form-field>
+            <mat-select placeholder="Sorting" (selectionChange)="changeClient($event.value)">
+              <mat-option *ngFor="let food of foods" [value]="food.value">
+                {{food.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </mat-card>
 
-  <mat-toolbar class="menu-toolbar">
-    <mat-toolbar-row>
-      <span>В избранное добавлено: {{value}} элементов</span>
-      <span class="example-spacer"></span>
-      <div>
-        <mat-form-field>
-          <mat-select placeholder="Sorting" (selectionChange)="changeClient($event.value)">
-            <mat-option *ngFor="let food of foods" [value]="food.value">
-              {{food.viewValue}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-    </mat-toolbar-row>
-  </mat-toolbar>
-
-</mat-card>
-
-<mat-grid-list cols="3" rowHeight="800px">
-  <mat-grid-tile *ngFor="let film of films" colspan="1" rowspan="1">
-    <film-item [filmItem]='film'></film-item>
-  </mat-grid-tile>
-</mat-grid-list>
+  <mat-grid-list cols="6" rowHeight="800px">
+    <mat-grid-tile *ngFor="let film of films" colspan="2">
+      <film-item [improved]='isFav' [filmItem]='film' (update)="setUpdatedValue($event)"></film-item>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
