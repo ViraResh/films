@@ -11,14 +11,7 @@
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <button (click)="favoriteFilm()" mat-button>{{filmItem.isFavorite ? 'Видалити з вибраного' : 'Додати у вибране'}}</button>
-    <!--<div *ngIf="improved">-->
-      <!--<button (click)="favoriteFilm(filmItem.id)" mat-button>Видалити з вибраного</button>-->
-    <!--</div>-->
-    <!--<div *ngIf="!improved">-->
-      <!--<button (click)="favoriteFilm(filmItem.id)" mat-button>Додати у вибране</button>-->
-    <!--</div>-->
-
+    <button (click)="addFavoriteFilm()" color="{{ btnColor }}" mat-button>{{filmItem.isFavorite ? 'Видалити з вибраного' : 'Додати у вибране'}}</button>
   </mat-card-actions>
 </mat-card>
 

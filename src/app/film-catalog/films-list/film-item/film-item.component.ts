@@ -1,35 +1,27 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
-  selector: 'film-item',
+  selector: 'app-film-item',
   templateUrl: './film-item.component.html',
   styleUrls: ['./film-item.component.css']
 })
 export class FilmItemComponent implements OnInit {
   @Input() filmItem;
-  @Input() improved;
-  @Output() update = new EventEmitter<number>();
+  @Output() add = new EventEmitter();
+  btnColor = 'primary';
 
-  //isFav: boolean = false;
   constructor() {}
 
   ngOnInit() {
-    //console.log(this.improved);
   }
-  favoriteFilm(el){
-    //console.log(this.improved);
-    this.update.emit(el);
+  addFavoriteFilm() {
+    this.filmItem.isFavorite = !this.filmItem.isFavorite;
+    this.add.emit(this.filmItem.isFavorite);
+    if (this.filmItem.isFavorite) {
+      this.btnColor = 'accent';
+    } else {
+      this.btnColor = 'primary';
+    }
   }
-
-  // addFavoriteFilm(el){
-  //   this.update.emit(el);
-  //   console.log('add' + el);
-  //   this.isFav = true;
-  // }
-  // removeFavoriteFilm(el){
-  //   this.update.emit(el);
-  //   console.log('rem' + el);
-  //   this.isFav = false;
-  // }
 
 }
