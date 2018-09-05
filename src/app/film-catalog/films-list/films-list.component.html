@@ -7,8 +7,8 @@
         <div>
           <mat-form-field>
             <mat-select placeholder="Sorting" (selectionChange)="sorting($event.value)">
-              <mat-option *ngFor="let food of foods" [value]="food.value">
-                {{food.viewValue}}
+              <mat-option *ngFor="let sort of sortData" [value]="sort.value">
+                {{sort.viewValue}}
               </mat-option>
             </mat-select>
           </mat-form-field>

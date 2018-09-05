@@ -1,11 +1,7 @@
-import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { FilmService } from '../film.service';
-import {Film} from '../film';
-
-export interface Food {
-  value: string;
-  viewValue: string;
-}
+import {Film} from '../../interfaces/film';
+import {Sort} from '../../interfaces/sort';
 
 @Component({
   selector: 'app-film-list',
@@ -15,8 +11,7 @@ export interface Food {
 export class FilmsComponent implements OnInit {
   counter = 0;
   films: Film[];
-  test: Film[];
-  foods: Food[] = [
+  sortData: Sort[] = [
     {value: 'asc', viewValue: 'ASC'},
     {value: 'desk', viewValue: 'DESC'}
   ];
@@ -26,6 +21,7 @@ export class FilmsComponent implements OnInit {
 
   ngOnInit() {
     this.getAllFilms();
+    this.addToFavorite(event);
   }
 
   getAllFilms() {
@@ -33,8 +29,7 @@ export class FilmsComponent implements OnInit {
   }
 
   addToFavorite(eventParam) {
-    this.test = this.films;
-    this.counter = this.test.filter(bee => bee.isFavorite).length;
+    this.counter = this.films.filter(bee => bee.isFavorite).length;
   }
 
   sorting(data) {
