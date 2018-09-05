@@ -4,6 +4,9 @@
       <mat-toolbar-row>
         <span>В вибране добавлено: {{ counter }} елементів</span>
         <span class="example-spacer"></span>
+        <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="searchText" placeholder="find film" value="">
+        </mat-form-field>
         <div>
           <mat-form-field>
             <mat-select placeholder="Sorting" (selectionChange)="sorting($event.value)">
@@ -16,9 +19,11 @@
       </mat-toolbar-row>
     </mat-toolbar>
   </mat-card>
-
+  <div class="no-match" *ngIf="(films | search : searchText).length === 0">
+    <h1>No match found</h1>
+  </div>
   <mat-grid-list cols="6" rowHeight="800px">
-    <mat-grid-tile *ngFor="let film of films" colspan="2">
+    <mat-grid-tile *ngFor="let film of films | search : searchText" colspan="2">
       <app-film-item [filmItem]='film' (add)="addToFavorite($event)"></app-film-item>
     </mat-grid-tile>
   </mat-grid-list>

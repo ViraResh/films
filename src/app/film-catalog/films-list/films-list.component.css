@@ -5,3 +5,10 @@
   padding-top: 0.9375rem;
   padding-bottom: 0.9375rem;
 }
+mat-form-field {
+  margin-right: 50px;
+}
+.no-match {
+  display: flex;
+  justify-content: center;
+}

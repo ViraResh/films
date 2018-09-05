@@ -7,8 +7,9 @@ import { DetailsComponent } from './details/details.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatGridListModule} from '@angular/material/grid-list';
-import {MatSelectModule, MatTabsModule, MatToolbarModule} from "@angular/material";
+import {MatInputModule, MatSelectModule, MatTabsModule, MatToolbarModule} from '@angular/material';
 import { FilmItemComponent } from './films-list/film-item/film-item.component';
+import {SearchPipe} from '../pipes/search.pipe';
 
 @NgModule({
   imports: [
@@ -19,13 +20,15 @@ import { FilmItemComponent } from './films-list/film-item/film-item.component';
     MatGridListModule,
     MatTabsModule,
     MatSelectModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatInputModule
   ],
   declarations: [
     MainComponent,
     FilmsComponent,
     DetailsComponent,
-    FilmItemComponent
+    FilmItemComponent,
+    SearchPipe
   ]
 })
 export class FilmCatalogModule { }
