@@ -23,8 +23,12 @@
     <h1>No match found</h1>
   </div>
   <mat-grid-list cols="6" rowHeight="800px">
-    <mat-grid-tile *ngFor="let film of films | search : searchText" colspan="2">
+    <mat-grid-tile *ngFor="let film of films | search : searchText | slice:0:more" colspan="2">
       <app-film-item [filmItem]='film' (add)="addToFavorite($event)"></app-film-item>
     </mat-grid-tile>
   </mat-grid-list>
+  <div class="wrapper">
+    <button class="load-more" mat-flat-button (click)="more = more + 3" [disabled]="films.length - more === 0">
+      Завантажити ще {{ films.length - more }} фільмів</button>
+  </div>
 </div>
