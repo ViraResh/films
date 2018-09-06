@@ -10,6 +10,7 @@ import {Sort} from '../../interfaces/sort';
 })
 export class FilmsComponent implements OnInit {
   counter = 0;
+  more = 3;
   films: Film[];
   sortData: Sort[] = [
     {value: 'asc', viewValue: 'ASC'},
