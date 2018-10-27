@@ -10,6 +10,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatInputModule, MatSelectModule, MatTabsModule, MatToolbarModule} from '@angular/material';
 import { FilmItemComponent } from './films-list/film-item/film-item.component';
 import {SearchPipe} from '../pipes/search.pipe';
+import {HttpClientModule} from '@angular/common/http';
+import { ActorItemComponent } from './films-list/actor-item/actor-item.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   imports: [
@@ -21,14 +24,17 @@ import {SearchPipe} from '../pipes/search.pipe';
     MatTabsModule,
     MatSelectModule,
     MatToolbarModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule,
+    NgxPaginationModule
   ],
   declarations: [
     MainComponent,
     FilmsComponent,
     DetailsComponent,
     FilmItemComponent,
-    SearchPipe
+    SearchPipe,
+    ActorItemComponent
   ]
 })
 export class FilmCatalogModule { }

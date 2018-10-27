@@ -1,18 +1,45 @@
-<mat-card class="card">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>{{ filmItem.name }}</mat-card-title>
-    <mat-card-subtitle>{{ filmItem.year }}</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image src="{{filmItem.imgUrl}}" alt="{{filmItem.name}}">
-  <mat-card-content>
-    <p>
-    {{filmItem.description.substring(0,100)}}
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button (click)="addFavoriteFilm()" color="{{ btnColor }}" mat-button>{{filmItem.isFavorite ? 'Видалити з вибраного' : 'Додати у вибране'}}</button>
-  </mat-card-actions>
-</mat-card>
+<!--<mat-card class="card">-->
+  <!--<mat-card-header>-->
+    <!--<div mat-card-avatar class="example-header-image"></div>-->
+    <!--<mat-card-title>{{ filmItem.name }}</mat-card-title>-->
+    <!--<mat-card-subtitle>{{ filmItem.year }}</mat-card-subtitle>-->
+  <!--</mat-card-header>-->
+  <!--<img mat-card-image src="{{filmItem.imgUrl}}" alt="{{filmItem.name}}">-->
+  <!--<mat-card-content>-->
+    <!--<p>-->
+    <!--{{filmItem.description.substring(0,100)}}-->
+    <!--</p>-->
+  <!--</mat-card-content>-->
+  <!--<mat-card-actions>-->
+    <!--<button (click)="addFavoriteFilm()" color="{{ btnColor }}" mat-button>{{filmItem.isFavorite ? 'Видалити з вибраного' : 'Додати у вибране'}}</button>-->
+  <!--</mat-card-actions>-->
+<!--</mat-card>-->
+<!--<mat-card class="card">-->
+  <!--<mat-card-header>-->
+    <!--&lt;!&ndash;<div mat-card-avatar class="example-header-image"></div>&ndash;&gt;-->
+    <!--<mat-card-title>{{ filmItem.title }}</mat-card-title>-->
+    <!--<mat-card-subtitle>{{ filmItem.release_date }}</mat-card-subtitle>-->
+  <!--</mat-card-header>-->
+  <!--<img mat-card-image src="{{startPath + filmItem.poster_path}}" alt="{{filmItem.title}}">-->
+  <!--<mat-card-content>-->
+    <!--<p>-->
+    <!--{{filmItem.overview | slice:0:100}}-->
+    <!--</p>-->
+  <!--</mat-card-content>-->
+  <!--<mat-card-actions>-->
+    <!--<button (click)="addFavoriteFilm()" color="{{ btnColor }}" mat-button>{{filmItem.isFavorite ? 'Видалити з вибраного' : 'Додати у вибране'}}</button>-->
+  <!--</mat-card-actions>-->
+<!--</mat-card>-->
 
 
+<!--<div class="cart-item">-->
+  <!--<div class="image-content">-->
+    <!--<img src="{{startPath + filmItem.poster_path}}" alt="{{filmItem.title}}">-->
+  <!--</div>-->
+  <!--<div class="content-info">-->
+    <!--<div class="title">{{ filmItem.title }}</div>-->
+    <!--<div class="release-data">{{ filmItem.release_date }}</div>-->
+    <!--<div class="item-description">{{filmItem.overview | slice:0:100}}</div>-->
+    <!--<button (click)="addFavoriteFilm()">{{filmItem.isFavorite ? 'Видалити з вибраного' : 'Додати у вибране'}}</button>-->
+  <!--</div>-->
+<!--</div>-->

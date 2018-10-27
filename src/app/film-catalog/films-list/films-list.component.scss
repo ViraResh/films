@@ -1,0 +1,56 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+.container {
+  padding-top: 0.9375rem;
+  padding-bottom: 0.9375rem;
+}
+mat-form-field {
+  margin-left: 5px;
+  margin-right: 50px;
+}
+mat-grid-list {
+  display: none;
+}
+mat-grid-list, .results {
+  &.show {
+    display: flex;
+  }
+}
+
+.no-match {
+  display: flex;
+  justify-content: center;
+}
+.search-text {
+  color: gray;
+  font-weight: normal;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+.results {
+  display: none;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+.results {
+  .cart-item {
+    width: 483px;
+    display: flex;
+    flex-flow: row nowrap;
+    .image-content {
+      width: 185px;
+      height: 278px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .content-info {
+      width: 298px;
+    }
+  }
+
+}
