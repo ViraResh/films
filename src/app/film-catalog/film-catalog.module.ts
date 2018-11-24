@@ -12,7 +12,8 @@ import { FilmItemComponent } from './films-list/film-item/film-item.component';
 import {SearchPipe} from '../pipes/search.pipe';
 import {HttpClientModule} from '@angular/common/http';
 import { ActorItemComponent } from './films-list/actor-item/actor-item.component';
-import {NgxPaginationModule} from 'ngx-pagination';
+import {NgxSpinnerModule} from "ngx-spinner";
+// import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     MatToolbarModule,
     MatInputModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxSpinnerModule
+    // NgxPaginationModule
   ],
   declarations: [
     MainComponent,

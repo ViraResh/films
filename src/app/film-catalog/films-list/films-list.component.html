@@ -1,4 +1,13 @@
 <div class="container">
+
+  <!--<div class="spinner" *ngIf="filmsData$ || !actorsData$">-->
+    <ngx-spinner
+      bdColor = "rgba(51, 51, 51, 0.8)"
+      size = "medium"
+      color = "#a8dc9f"
+      type = "square-jelly-box"></ngx-spinner>
+  <!--</div>-->
+
   <mat-card class="menu-card">
     <mat-toolbar class="menu-toolbar">
       <mat-toolbar-row>
@@ -29,49 +38,64 @@
   </mat-card>
 
   <div class="results" [ngClass]="{'show' : isFilms}">
-    <!--<app-film-item [filmItem]='film'></app-film-item>-->
-    <div class="cart-item" *ngFor="let film of filmsData$ | paginate: { itemsPerPage: 20, currentPage: p, totalItems: total }">
-      <div class="image-content">
-        <img src="{{startPath + film.poster_path}}" alt="{{film.title}}">
-      </div>
-      <div class="content-info">
-        <div class="title">{{ film.title }}</div>
-        <div class="release-data">{{ film.release_date }}</div>
-        <div class="item-description">{{film.overview | slice:0:100}}</div>
-        <button (click)="addFavoriteFilm()">{{film.isFavorite ? 'Видалити з вибраного' : 'Додати у вибране'}}</button>
-      </div>
+    <div class="cart-item" *ngFor="let film of filmsData$">
+      <app-film-item [filmItem]='film'></app-film-item>
     </div>
   </div>
 
-  <!--<div class="no-match" *ngIf="(films | search : searchText).length === 0">-->
-    <!--<h3>По вашому запиту <span class="search-text">"{{searchText}}"</span> нічого не знайдено</h3>-->
-  <!--</div>-->
-  <!--<mat-tab-group dynamicHeight="true" (selectedTabChange)="changeLayout($event)">-->
-    <!--<mat-tab label="Films" [ngClass]="'show'">-->
-      <!--<mat-grid-list cols="8" rowHeight="300px" [ngClass]="{'show' : isFilms}">-->
-        <!--&lt;!&ndash;<mat-grid-tile *ngFor="let film of filmsData$ | search : searchText | slice:0:more" colspan="2">&ndash;&gt;-->
-        <!--&lt;!&ndash;<app-film-item [filmItem]='film' (add)="addToFavorite($event)"></app-film-item>&ndash;&gt;-->
-        <!--&lt;!&ndash;</mat-grid-tile>&ndash;&gt;-->
-        <!--<mat-grid-tile *ngFor="let film of filmsData$ | paginate: { itemsPerPage: 20, currentPage: p, totalItems: total }" colspan="4">-->
-          <!--<app-film-item [filmItem]='film'></app-film-item>-->
-        <!--</mat-grid-tile>-->
-      <!--</mat-grid-list>-->
-    <!--</mat-tab>-->
-    <!--<mat-tab label="Actors" ngClass="show">-->
-      <mat-grid-list cols="4" rowHeight="600px" [ngClass]="{'show' : isActors}">
-        <mat-grid-tile *ngFor="let actor of actorsData$ | paginate: { itemsPerPage: 20, currentPage: p }" class="my-grid-tile">
-          <app-actor-item
-            [actorItem]="actor"
-            [actorPopularity]='actor.popularity'
-            [actorImg]="actor.profile_path">
-          </app-actor-item>
-        </mat-grid-tile>
-      </mat-grid-list>
-    <!--</mat-tab>-->
-  <!--</mat-tab-group>-->
-  <pagination-controls (pageChange)="p = $event"></pagination-controls>
-  <!--<div class="wrapper">-->
-    <!--<button class="load-more" mat-flat-button (click)="more = more + 3" [disabled]="films.length - more === 0">-->
-      <!--Завантажити ще {{ films.length - more }} фільмів</button>-->
-  <!--</div>-->
+  <div class="wrapper" [ngClass]="{'show' : isFilms}">
+    <button class="load-more" mat-flat-button (click)="getPage()">
+      Завантажити ще фільмів</button>
+  </div>
+
+  <mat-grid-list cols="4" rowHeight="600px" [ngClass]="{'show' : isActors}">
+    <mat-grid-tile *ngFor="let actor of actorsData$" class="my-grid-tile">
+      <app-actor-item
+        [actorItem]="actor"
+        [actorPopularity]='actor.popularity'
+        [actorImg]="actor.profile_path">
+      </app-actor-item>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <div class="wrapper" [ngClass]="{'show' : isActors}">
+    <button class="load-more" mat-flat-button (click)="getActor()">
+      Завантажити ще акторів</button>
+  </div>
+
 </div>
+
+<!--<div class="no-match" *ngIf="(films | search : searchText).length === 0">-->
+  <!--<h3>По вашому запиту <span class="search-text">"{{searchText}}"</span> нічого не знайдено</h3>-->
+<!--</div>-->
+<!--<mat-tab-group dynamicHeight="true" (selectedTabChange)="changeLayout($event)">-->
+  <!--<mat-tab label="Films" [ngClass]="'show'">-->
+    <!--<mat-grid-list cols="8" rowHeight="300px" [ngClass]="{'show' : isFilms}">-->
+      <!--&lt;!&ndash;<mat-grid-tile *ngFor="let film of filmsData$ | search : searchText | slice:0:more" colspan="2">&ndash;&gt;-->
+      <!--&lt;!&ndash;<app-film-item [filmItem]='film' (add)="addToFavorite($event)"></app-film-item>&ndash;&gt;-->
+      <!--&lt;!&ndash;</mat-grid-tile>&ndash;&gt;-->
+      <!--<mat-grid-tile *ngFor="let film of filmsData$ | paginate: { itemsPerPage: 20, currentPage: p, totalItems: total }" colspan="4">-->
+        <!--<app-film-item [filmItem]='film'></app-film-item>-->
+      <!--</mat-grid-tile>-->
+    <!--</mat-grid-list>-->
+  <!--</mat-tab>-->
+  <!--<mat-tab label="Actors" ngClass="show">-->
+
+  <!--</mat-tab>-->
+<!--</mat-tab-group>-->
+
+  <!--<ul *ngFor="let page of totalPage">-->
+    <!--<li><a href="">{{page}}</a></li>-->
+  <!--</ul>-->
+  <!--<div *ngFor="let page of totalPage" [class.current]="p.getCurrent() === page.value">-->
+    <!--<a (click)="p.setCurrent(page.value)" *ngIf="p.getCurrent() !== page.value">-->
+      <!--<span>{{ page.label }}</span>-->
+    <!--</a>-->
+    <!--<div *ngIf="p.getCurrent() === page.value">-->
+      <!--<span>{{ page.label }}</span>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--<div class="wrapper">-->
+  <!--<button class="load-more" mat-flat-button (click)="getPopularFilms()" [disabled]="filmsData$.length">-->
+    <!--Завантажити ще {{ filmsData$.length }} фільмів</button>-->
+<!--</div>-->
