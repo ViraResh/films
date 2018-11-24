@@ -1,0 +1,103 @@
+/*.card {*/
+  /*max-width: 483px;*/
+/*}*/
+/*.example-header-image {*/
+  /*background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');*/
+  /*background-size: cover;*/
+/*}*/
+/*.mat-card-subtitle {*/
+  /*text-align: left;*/
+/*}*/
+/*!*.mat-grid-list {*!*/40px
+/*!*margin: 30px;*!*/
+/*!*}*!*/
+/*.mat-grid-tile {*/
+  /*margin-top: 30px;*/
+  /*padding: 30px;*/
+/*}*/
+/*!*.mat-card {*!*/
+  /*!*margin-bottom: 60px;*!*/
+/*!*}*!*/
+/*img {*/
+  /*!*height: 500px;*!*/
+  /*height: 100%;*/
+  /*width: 200px;*/
+  /*object-fit: cover;*/
+/*}*/
+.title {
+  font-weight: 600;
+}
+.image-content {
+  width: 50%;
+  height: auto;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+.content-info {
+  width: 40%;
+  padding: 10px 16px 16px 16px;
+  .film-name {
+    font-weight: 600;
+    font-size: 18px;
+  }
+  .average-block {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    .rating {
+      font-weight: 600;
+      span {
+        &:first-child {
+          font-size: 22px;
+        }
+        &:last-child {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+  .release-data, .item-description {
+    p {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+    }
+  }
+  .item-description {
+    margin: 10px 0;
+    .description {
+      //text-overflow: ellipsis;
+      //overflow: hidden;
+      //width: 200px;
+      //height: 3.2em;
+      //white-space: nowrap;
+      max-height: 90px;
+      height: 150px;
+      overflow: hidden;
+      //overflow: hidden;
+      //text-overflow: ellipsis;
+      //// white-space: nowrap;
+    }
+  }
+  button {
+    width: 190px;
+    padding: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    border: 1px solid black;
+    background: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    &:hover {
+      color: white;
+      background: #3f51b5;
+    }
+  }
+}

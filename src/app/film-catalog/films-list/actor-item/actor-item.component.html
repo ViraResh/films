@@ -3,5 +3,7 @@
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title>{{ actorItem.name }}</mat-card-title>
   </mat-card-header>
-  <img mat-card-image src="{{startPath + actorItem.profile_path}}" alt="{{actorItem.name}}">
+  <!--<img *ngIf="!actorItem.profile_path" src="../../../../assets/image/anonim.png" alt="">-->
+  <!--<img mat-card-image src="{{startPath + actorItem.profile_path}}" alt="{{actorItem.name}}">-->
+  <img mat-card-image src="{{startPath + actorItem.profile_path || 'assets/image/anonim.png'}}" alt="{{actorItem.name}}">
 </mat-card>
