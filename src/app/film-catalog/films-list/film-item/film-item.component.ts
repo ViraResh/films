@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FilmService} from '../../film.service';
-
+import {FavoriteApiService} from "../../favorite.api.service";
 @Component({
   selector: 'app-film-item',
   templateUrl: './film-item.component.html',
@@ -14,7 +14,7 @@ export class FilmItemComponent implements OnInit {
   startPath: any;
   // size = '/w500';
 
-  constructor(private filmService: FilmService) {}
+  constructor(private filmService: FilmService, private favService: FavoriteApiService) {}
 
   ngOnInit() {
     // console.log(this.filmService.midImgPath);
@@ -23,12 +23,20 @@ export class FilmItemComponent implements OnInit {
 
   addFavoriteFilm() {
     this.filmItem.isFavorite = !this.filmItem.isFavorite;
-    this.add.emit(this.filmItem.isFavorite);
-    if (this.filmItem.isFavorite) {
-      this.btnColor = 'accent';
-    } else {
-      this.btnColor = 'primary';
-    }
+    //this.add.emit(this.filmItem.isFavorite);
+
+      //this.filmItem.favorite ?
+      this.favService.addFavor(this.filmItem.id)
+        .subscribe(() => this.filmItem.favorite = true);
+      // this.favService.dellFavor(this.filmItem.id)
+      //   .subscribe(() => this.filmItem.favorite = false);
+    // this.favService.addFavor(this.filmItem.id)
+    //   .subscribe(() => this.filmItem.favorite = true)
+    // if (this.filmItem.isFavorite) {
+    //   this.btnColor = 'accent';
+    // } else {
+    //   this.btnColor = 'primary';
+    // }
   }
 
 }

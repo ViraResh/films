@@ -1,6 +1,4 @@
 <div class="image-content">
-<!--<img *ngIf="!filmItem.poster_path" src="assets/image/anonim.png" alt="">-->
-<!--<img src="{{startPath + filmItem.poster_path}}" alt="{{filmItem.title}}">-->
 <img src="{{startPath + filmItem.poster_path || 'assets/image/anonim.png'}}" alt="{{filmItem.title}}">
 </div>
 
