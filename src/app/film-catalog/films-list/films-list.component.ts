@@ -4,6 +4,7 @@ import {Film} from '../../interfaces/film';
 import {Sort} from '../../interfaces/sort';
 import {Actor} from '../../interfaces/actor';
 import { NgxSpinnerService } from 'ngx-spinner';
+import {FavoriteApiService} from "../favorite.api.service";
 
 @Component({
   selector: 'app-film-list',
@@ -37,7 +38,7 @@ export class FilmsComponent implements OnInit {
     {value: 'actors', viewValue: 'Актори'}
   ];
 
-  constructor(public filmsService: FilmService,
+  constructor(private favService: FavoriteApiService,public filmsService: FilmService,
     private spinner: NgxSpinnerService) {
   }
 
@@ -74,7 +75,7 @@ export class FilmsComponent implements OnInit {
         // console.log(`${this.filmsService.midImgPath}${filmList.results[2].poster_path}`);
         setTimeout(() => {
           this.spinner.hide();
-        }, 5000);
+        }, 3000);
       },
       err => {
         console.log('error');
