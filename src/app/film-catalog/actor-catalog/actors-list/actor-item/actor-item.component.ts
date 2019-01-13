@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FilmService} from '../../film.service';
+import {FilmService} from '../../../film.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-actor-item',

@@ -1,0 +1,13 @@
+<!--<p>-->
+  <!--actors-list works!-->
+<!--</p>-->
+
+<mat-grid-list cols="4" rowHeight="600px" [ngClass]="{'show' : isActors}">
+  <mat-grid-tile *ngFor="let actor of actorsData$" class="my-grid-tile">
+    <app-actor-item
+      [actorItem]="actor"
+      [actorPopularity]='actor.popularity'
+      [actorImg]="actor.profile_path">
+    </app-actor-item>
+  </mat-grid-tile>
+</mat-grid-list>

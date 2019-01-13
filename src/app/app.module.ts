@@ -9,6 +9,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import {ActorCatalogModule} from "./film-catalog/actor-catalog/actor-catalog.module";
 // import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
@@ -19,6 +20,7 @@ import {MatButtonModule} from '@angular/material/button';
     BrowserModule,
     AppRoutingModule,
     FilmCatalogModule,
+    ActorCatalogModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,

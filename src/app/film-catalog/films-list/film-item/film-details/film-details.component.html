@@ -1,0 +1,12 @@
+<!--<div>-->
+  <!--<div>Это компонент который показывает детальную информацию</div>-->
+  <!--<ng-content></ng-content>-->
+<!--</div>-->
+<a (click)="back()">Back</a>
+<div class="content-info">
+  <div class="film-name">
+    <span>{{ titleFilm }}</span>
+  </div>
+  <img src="{{ startPath + imageFilm }}" alt="">
+  <p>{{ descriptionFilm }}</p>
+</div>

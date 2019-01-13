@@ -1,5 +1,7 @@
 <div class="image-content">
-<img src="{{startPath + filmItem.poster_path || 'assets/image/anonim.png'}}" alt="{{filmItem.title}}">
+  <a [routerLink]="[filmItem.id]">
+    <img src="{{startPath + filmItem.poster_path || 'assets/image/anonim.png'}}" alt="{{filmItem.title}}">
+  </a>
 </div>
 
 <div class="content-info">
@@ -7,6 +9,7 @@
     <span>{{filmItem.original_title}}</span>
   </div>
   <div class="average-block">
+
     <svg width="60px" height="30px" viewBox="0 0 60 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin-right:10px;">
       <title>imbd_logo</title>
       <desc>Created with Sketch.</desc>
@@ -37,6 +40,7 @@
     <div class="description">{{filmItem.overview | slice:0:90}} ...</div>
   </div>
   <button (click)="addFavoriteFilm()">{{filmItem.isFavorite ? 'Видалити з вибраного' : 'Додати у вибране'}}</button>
+  <a [routerLink]="[filmItem.id]">Details</a>
 </div>
 
 <!--<mat-card class="card">-->
