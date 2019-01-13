@@ -1,8 +1,8 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { FilmService } from '../film.service';
 import {Film} from '../../interfaces/film';
-import {Sort} from '../../interfaces/sort';
-import {Actor} from '../../interfaces/actor';
+// import {Sort} from '../../interfaces/sort';
+// import {Actor} from '../../interfaces/actor';
 import { NgxSpinnerService } from 'ngx-spinner';
 import {FavoriteApiService} from "../favorite.api.service";
 
@@ -11,7 +11,7 @@ import {FavoriteApiService} from "../favorite.api.service";
   templateUrl: './films-list.component.html',
   styleUrls: ['./films-list.component.scss']
 })
-export class FilmsComponent implements OnInit {
+export class FilmsListComponent implements OnInit {
   selected = 'films';
   currentPage: number = 1;
   counter = 0;
@@ -21,7 +21,7 @@ export class FilmsComponent implements OnInit {
   changeIndex = 0;
   films: Film[];
   filmsData$: Array<Film>;
-  actorsData$: Array<Actor>;
+
   imagePath$;
   // currentPage = '';
   totalPage = '';
@@ -33,12 +33,12 @@ export class FilmsComponent implements OnInit {
   total: '';
   startPath: any;
   // showSpinner: boolean = true;
-  sortData: Sort[] = [
-    {value: 'films', viewValue: 'Фільми'},
-    {value: 'actors', viewValue: 'Актори'}
-  ];
+  // sortData: Sort[] = [
+  //   {value: 'films', viewValue: 'Фільми'},
+  //   {value: 'actors', viewValue: 'Актори'}
+  // ];
 
-  constructor(private favService: FavoriteApiService,public filmsService: FilmService,
+  constructor(private favService: FavoriteApiService, public filmsService: FilmService,
     private spinner: NgxSpinnerService) {
   }
 
@@ -46,19 +46,12 @@ export class FilmsComponent implements OnInit {
     this.spinner.show();
     this.startPath = this.filmsService.midImgPath;
     this.getPopularFilms();
-    this.getPopularActors();
+
     // this.filmsService.subscribe(()=> this.showSpinner = false);
     // this.spinner.hide();
     // this.addToFavorite(event);
   }
-  getPopularActors() {
-    this.filmsService.getPopularActors(this.currentPage).subscribe(
-      (actorList: any) => {
-        this.actorsData$ = actorList.results;
-        // console.log(this.actorsData$);
-      }
-    );
-  }
+
   getPopularFilms() {
     this.filmsService.getPopularFilms(this.currentPage).subscribe(
       (filmList: any) => {
@@ -105,10 +98,7 @@ export class FilmsComponent implements OnInit {
     this.currentPage++;
     this.getPopularFilms();
   }
-  getActor() {
-    this.currentPage++;
-    this.getPopularActors();
-  }
+
   addToFavorite(eventParam) {
     this.counter = this.films.filter(bee => bee.isFavorite).length;
   }

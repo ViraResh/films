@@ -50,5 +50,8 @@ export class FilmService {
   getPopularActors(page?: number) {
     return this.http.get(`${this.personUrl}/popular?page=${page}${this.params}`);
   }
+  showFilmDetails (movie_id?: number) {
+    return this.http.get(`${this.movieUrl}/${movie_id}?${this.params}`);
+  }
 
 }

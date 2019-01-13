@@ -3,5 +3,9 @@
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title>{{ actorItem.name }}</mat-card-title>
   </mat-card-header>
+  <a [routerLink]="[actorItem.id]">
   <img mat-card-image src="{{startPath + actorItem.profile_path || 'assets/image/anonim.png'}}" alt="{{actorItem.name}}">
+  </a>
+  <!--<a href="actor/ {{ actorItem.id }}">Details</a>-->
+  <a [routerLink]="[actorItem.id]">Details</a>
 </mat-card>

@@ -25,13 +25,14 @@
             <!--</mat-select>-->
           <!--</mat-form-field>-->
         <!--</div>-->
-        <mat-form-field>
-          <mat-select placeholder="Sorting" (selectionChange)="sorting($event.value)" [(value)]="selected">
-            <mat-option *ngFor="let sort of sortData" [value]="sort.value">
-              {{sort.viewValue}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
+
+        <!--<mat-form-field>-->
+          <!--<mat-select placeholder="Sorting" (selectionChange)="sorting($event.value)" [(value)]="selected">-->
+            <!--<mat-option *ngFor="let sort of sortData" [value]="sort.value">-->
+              <!--{{sort.viewValue}}-->
+            <!--</mat-option>-->
+          <!--</mat-select>-->
+        <!--</mat-form-field>-->
 
       </mat-toolbar-row>
     </mat-toolbar>
@@ -47,16 +48,6 @@
     <button class="load-more" mat-flat-button (click)="getPage()">
       Завантажити ще фільмів</button>
   </div>
-
-  <mat-grid-list cols="4" rowHeight="600px" [ngClass]="{'show' : isActors}">
-    <mat-grid-tile *ngFor="let actor of actorsData$" class="my-grid-tile">
-      <app-actor-item
-        [actorItem]="actor"
-        [actorPopularity]='actor.popularity'
-        [actorImg]="actor.profile_path">
-      </app-actor-item>
-    </mat-grid-tile>
-  </mat-grid-list>
 
   <div class="wrapper" [ngClass]="{'show' : isActors}">
     <button class="load-more" mat-flat-button (click)="getActor()">
