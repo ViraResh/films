@@ -1,0 +1,18 @@
+.btn-back {
+  margin: 20px;
+}
+.images {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  padding: 20px;
+  .poster {
+    flex: 1;
+    img {
+      max-width: 300px;
+    }
+  }
+  .section_header {
+    flex: 2;
+  }
+}
