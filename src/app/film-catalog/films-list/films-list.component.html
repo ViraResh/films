@@ -13,6 +13,9 @@
       <mat-toolbar-row>
         <span>В вибране добавлено: {{ counter }} елементів</span>
         <span class="example-spacer"></span>
+        <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="searchText" placeholder="find film" value="">
+        </mat-form-field>
         <!--<mat-form-field class="example-full-width">-->
           <!--<input matInput [(ngModel)]="searchText" placeholder="find film" value="">-->
         <!--</mat-form-field>-->

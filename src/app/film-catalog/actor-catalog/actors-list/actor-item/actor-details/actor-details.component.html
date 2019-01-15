@@ -1,3 +1,21 @@
-<p>
-  actor-details works!
-</p>
+<!--<p>-->
+  <!--actor-details works!-->
+<!--</p>-->
+
+<!--<div class="content-info">-->
+  <!--<div class="film-name">-->
+    <!--&lt;!&ndash;<span>{{ dataActor.name }}</span>&ndash;&gt;-->
+  <!--</div>-->
+  <!--&lt;!&ndash;<img src="{{ startPath + dataActor.profile_path }}" alt="">&ndash;&gt;-->
+  <!--&lt;!&ndash;<p>{{ dataActor.biography }}</p>&ndash;&gt;-->
+<!--</div>-->
+<a [routerLink] class="btn-back" (click)="back()">Back</a>
+<section class="images">
+  <div class="poster">
+    <img src="{{ imageActor }}" alt="">
+  </div>
+  <section class="section_header">
+    <h3>{{ nameActor }}</h3>
+    <p>{{ descriptionActor }}</p>
+  </section>
+</section>

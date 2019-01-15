@@ -53,5 +53,9 @@ export class FilmService {
   showFilmDetails (movie_id?: number) {
     return this.http.get(`${this.movieUrl}/${movie_id}?${this.params}`);
   }
+  showActorDetails(actor_id?: number) {
+    return this.http.get(`${this.personUrl}/${actor_id}?${this.params}`);
+  }
+
 
 }

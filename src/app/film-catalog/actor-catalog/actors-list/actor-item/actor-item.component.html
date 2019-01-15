@@ -6,6 +6,12 @@
   <a [routerLink]="[actorItem.id]">
   <img mat-card-image src="{{startPath + actorItem.profile_path || 'assets/image/anonim.png'}}" alt="{{actorItem.name}}">
   </a>
+  <!--<div *ngFor="let film of actorItem.known_for"></div>-->
+    <div>
+      <span *ngFor="let film of actorItem.known_for">{{film.title + ', '}}</span>
+    </div>
+
+  <!--<p>{{ actorItem.known_for }}</p>-->
   <!--<a href="actor/ {{ actorItem.id }}">Details</a>-->
   <a [routerLink]="[actorItem.id]">Details</a>
 </mat-card>
